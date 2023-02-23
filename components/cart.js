@@ -75,7 +75,7 @@ function Cart() {
 const checkoutItems = ()=>{
   return (
     <div>
-      <Badge style={{ width: 200, padding: 10 }} color="light">
+      <Badge style={{ marginBottom: 15,width: 200, padding: 10 }} color="light">
         <h5 style={{ fontWeight: 100, color: "gray" }}>Total:</h5>
         <h3>${cart.total}</h3>
       </Badge>
@@ -90,8 +90,8 @@ const checkoutItems = ()=>{
 // return Cart
   return (
     <div>
-      <h1> Cart</h1>
-      <Card style={{ padding: "10px 5px" }} className="cart">
+      <Card style={{padding: "10px 10px" }} className="cart">
+      <center><h1>Cart</h1></center>
         <CardTitle style={{ margin: 10 }}>Your Order:</CardTitle>
         <hr />
         <CardBody style={{ padding: 10 }}>

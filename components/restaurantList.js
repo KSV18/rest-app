@@ -72,7 +72,7 @@ if(searchQuery.length > 0){
   ))
 
   return(
-
+//contains restaurants
     <Container>
     <Row xs='3'>
       {restList}

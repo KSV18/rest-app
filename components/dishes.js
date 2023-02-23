@@ -11,6 +11,7 @@ import {
   CardTitle,
   Row,
   Col} from "reactstrap";
+import { isBodyOverflowing } from "reactstrap/lib/utils";
 function Dishes({restId}){
   const [restaurantID, setRestaurantID] = useState()
   const {addItem} = useContext(AppContext)
@@ -50,21 +51,21 @@ const GET_RESTAURANT_DISHES = gql`
     return (
       <>
           {restaurant.dishes.map((res) => (
-            <Col xs="6" sm="4" style={{ padding: 0 }} key={res.id}>
-              <Card style={{ margin: "0 10px" }}>
+            <Col xs="5" sm="4" style={{ padding: 0 }} key={res.id}>
+              <Card style={{ margin: "0 15px" }}>
                 <CardImg
                   top={true}
-                  style={{ height: 150, width:150 }}
+                  style={{ objectFit: "cover", marginTop: 20, alignSelf: 'center', borderRadius: 5, height: 150, width:150 }}
                   src={`http://localhost:1337${res.image.url}`}
                 />
                 <CardBody>
-                  <CardTitle>{res.name}</CardTitle>
+                  <CardTitle style={{fontSize: 16, fontWeight: 'bold',}}>{res.name}</CardTitle>
                   <CardText>{res.description}</CardText>
                 </CardBody>
                 <div className="card-footer">
-                  <Button color="info"
+                  <Button
                     outline
-                    color="primary"
+                    color="warning"
                     onClick = {()=> addItem(res)}
                   >
                     + Add To Cart

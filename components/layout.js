@@ -7,7 +7,7 @@ import { Container, Nav, NavItem } from "reactstrap";
 import AppContext from "./context";
 
 const Layout = (props) => {
-const title = "Welcome to Nextjs";
+const title = "Welcome to Sabores";
 const {user} = useContext(AppContext);
   return (
     <div>
@@ -35,7 +35,7 @@ const {user} = useContext(AppContext);
             }
           `}
         </style>
-        <Nav className="navbar navbar-dark bg-dark">
+        <Nav className="navbar navbar-dark bg-warning">
           <NavItem>
             <Link href="/">
               <a className="navbar-brand">Home</a>
@@ -71,8 +71,12 @@ const {user} = useContext(AppContext);
           </NavItem>
         </Nav>
       </header>
+      
+      <body style={{minHeight:"100vh", backgroundImage: "url(talavera-10.jpg", backgroundRepeat: "repeat" }}>
       <Container>{props.children}</Container>
+      </body>
     </div>
+    
   );
 };
 
