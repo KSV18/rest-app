@@ -3,6 +3,8 @@ import Cart from "../components/cart"
 import {ApolloProvider,ApolloClient,HttpLink, InMemoryCache} from '@apollo/client';
 import RestaurantList from '../components/restaurantList';
 import { InputGroup, InputGroupAddon,Input} from "reactstrap";
+import SplitPane from "react-split-pane";
+import { urlObjectKeys } from "next/dist/next-server/lib/utils";
 
 
 function Home() {
@@ -16,7 +18,7 @@ function Home() {
   
     return (
         <ApolloProvider client={client}>
-          <div className="search">
+          <div className="search" style={{marginTop:1}}>
               <h2> Local Restaurants</h2>
                 <InputGroup >
                 <InputGroupAddon addonType="append"> Search </InputGroupAddon>
@@ -28,8 +30,18 @@ function Home() {
                 />
                 </InputGroup><br></br>
             </div>
-            <RestaurantList search={query} />
+            <SplitPane
+                // paneStyle={{backgroundImage: "url(talavera-2.jpg", backgroundRepeat: "repeat" }} 
+                pane1Style={{width:"75%"}}
+                pane2Style={{ marginRight:20,width:"25%"}}
+                split="vertical"
+                minSize={100}
+                maxSize={-100}
+                
+            >
+            <RestaurantList search={query} /> 
             <Cart> </Cart>
+            </SplitPane>
         </ApolloProvider>
     );
   }
