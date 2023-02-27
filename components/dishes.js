@@ -55,11 +55,11 @@ const GET_RESTAURANT_DISHES = gql`
               <Card style={{ margin: "0 15px" }}>
                 <CardImg
                   top={true}
-                  style={{ objectFit: "cover", marginTop: 20, alignSelf: 'center', borderRadius: 5, height: 150, width:150 }}
+                  style={{ objectFit: "cover", marginTop: 20, alignSelf: 'center', borderRadius: 20, height: 150, width:150 }}
                   src={`http://localhost:1337${res.image.url}`}
                 />
                 <CardBody>
-                  <CardTitle style={{fontSize: 16, fontWeight: 'bold',}}>{res.name}</CardTitle>
+                  <CardTitle style={{fontSize: 18, fontWeight: 'bold',}}>{res.name}</CardTitle>
                   <CardText>{res.description}</CardText>
                 </CardBody>
                 <div className="card-footer">
@@ -78,7 +78,7 @@ const GET_RESTAURANT_DISHES = gql`
         </>
         )}
         else{
-          return <h1> No Dishes</h1>
+          return <h1> </h1>
         }
     }
     export default Dishes

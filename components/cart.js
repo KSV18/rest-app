@@ -16,6 +16,7 @@ function Cart() {
   //   problem is that cart may not be set
   const router = useRouter();
   console.log(`Router Path: ${JSON.stringify(router)}`)
+  
   const renderItems = ()=>{
   let {items} = cart;
    console.log(`items: ${JSON.stringify(items)}`)

@@ -41,6 +41,11 @@ const {user} = useContext(AppContext);
               <a className="navbar-brand">Home</a>
             </Link>
           </NavItem>
+          <NavItem>
+            <Link href="/orderhistory">
+              <a className="nav-link">Order History</a>
+            </Link>
+          </NavItem>
           <NavItem className="ml-auto">
             {user ? (
               <h5>{user.username}</h5>
@@ -72,7 +77,7 @@ const {user} = useContext(AppContext);
         </Nav>
       </header>
       
-      <body style={{minHeight:"100vh", backgroundImage: "url(talavera-10.jpg", backgroundRepeat: "repeat" }}>
+      <body style={{minHeight:"200vh", backgroundImage: "url(talavera-5.jpg", backgroundRepeat: "repeat" }}>
       <Container>{props.children}</Container>
       </body>
     </div>
