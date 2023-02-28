@@ -40,7 +40,7 @@ function Login(props) {
             <div className="header">
               <img src="http://localhost:1337/uploads/5a60a9d26a764e7cba1099d8b157b5e9.png" />
             </div>
-            <section className="wrapper">
+            <section className="wrapper" >
               {Object.entries(error).length !== 0 &&
                 error.constructor === Object &&
                 error.message.map((error) => {
@@ -83,14 +83,14 @@ function Login(props) {
                     </span>
                     <Button
                       style={{ float: "right", width: 120 }}
-                      color="primary"
+                      color="warning"
                       onClick={() => {
                         setLoading(true);
                         login(data.identifier, data.password)
                           .then((res) => {
                             setLoading(false);
                             // set authed User in global context to update header/app state
-                            appContext.setUser(res.data.user);
+                            appContext.setUser(res.data.user.username);
                           })
                           .catch((error) => {
                             //setError(error.response.data);
@@ -116,6 +116,7 @@ function Login(props) {
               0px 2px 1px -1px rgba(0, 0, 0, 0.12);
             border-radius: 6px;
             margin-top: 90px;
+            background-color: white;
           }
           .notification {
             color: #ab003c;
@@ -123,7 +124,7 @@ function Login(props) {
           .header {
             width: 100%;
             height: 120px;
-            background-color: #2196f3;
+            background-color: #ffc028;
             margin-bottom: 30px;
             border-radius-top: 6px;
           }

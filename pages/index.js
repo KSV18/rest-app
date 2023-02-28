@@ -14,15 +14,16 @@ function Home() {
     const link = new HttpLink({ uri: `${API_URL}/graphql`})
     const cache = new InMemoryCache()
     const client = new ApolloClient({link,cache});
- 
+    
   
     return (
         <ApolloProvider client={client}>
           <div className="search" style={{marginTop:1}}>
-              <h2> Local Restaurants</h2>
+                <br></br>
                 <InputGroup >
                 <InputGroupAddon addonType="append"> Search </InputGroupAddon>
                 <Input
+                    placeholder="Local Restaurants"
                     onChange={(e) =>
                     setQuery(e.target.value.toLocaleLowerCase())
                     }

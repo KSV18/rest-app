@@ -1,61 +1,40 @@
 import { useContext, useState } from "react";
 import Head from "next/head";
 import AppContext from "../components/context";
-import Home from "./index"
+import Home from "./index";
 import Layout from "../components/layout";
 import Cookie from "js-cookie";
+import axios from "axios";
 import fetch from "isomorphic-fetch";
-import axios from 'axios';
-
-
 
 function MyApp(props){
   var {cart,addItem,removeItem, user, setUser} = useContext(AppContext)
   const [state,setState] = useState({cart:cart});
   const { Component, pageProps } = props;
-
-  componentDidMount() {
-    // grab token value from cookie
-    const token = Cookie.get("token");
-
-    if (token) {
-      // authenticate the token on the server and place set user object
-      fetch(`${process.env.NEXT_PUBLIC_API_URL}users/me`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      }).then(async (res) => {
-        // if res comes back not valid, token is not valid
-        // delete the token and log the user out on client
-        if (!res.ok) {
-          Cookie.remove("token");
-          this.setState({ user: null });
-          return null;
-        }
-        const user = await res.json();
-        this.setUser(user);
-      });
-    }
-  }
-// STRAPI DOC TOKEN USAGE CODE
-//const token = Cookie.get("token");
-
-// Request API.
-// axios
-// .get('http://localhost:1337/users/me', {
-//   headers: {
-//     Authorization: `Bearer ${token}`,
-//   },
-// })
-// .then(response => {
-//   // Handle success.
-//   console.log('Data: ', response.data);
-// })
-// .catch(error => {
-//   // Handle error.
-//   console.log('An error occurred:', error.response);
-// });
-
+//   const token = Cookie.get('token'); 
+  
+//  if (token) {
+   
+//   console.log(token);
+//   axios
+//   .get('http://localhost:1337/users/me', {
+//     headers: {
+//       Authorization: `Bearer ${token}`,
+//     },
+//   })
+//   .then(response => {
+//     // Handle success.
+//   const user = response.data.username;
+//   this.setUser(user);
+//   console.log(user);
+//     console.log('Data: ', response.data);
+//   })
+//   .catch(error => {
+//     // Handle error.
+//     console.log('An error occurred:', error.response);
+//   });
+// }
+  
   setUser = (user) => {
     setState({ user });
   };

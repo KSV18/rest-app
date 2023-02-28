@@ -90,14 +90,14 @@ const Register = () => {
                     </span>
                     <Button
                       style={{ float: "right", width: 120 }}
-                      color="primary"
+                      color="warning"
                       disabled={loading}
                       onClick={() => {
                         setLoading(true);
                         registerUser(data.username, data.email, data.password)
                           .then((res) => {
                             // set authed user in global context object
-                            appContext.setUser(res.data.user);
+                            appContext.setUser(res.data.user.username);
                             setLoading(false);
                             console.log(`registered user: ${JSON.stringify(res.data)}`)
                           })
@@ -126,6 +126,7 @@ const Register = () => {
               0px 2px 1px -1px rgba(0, 0, 0, 0.12);
             border-radius: 6px;
             margin-top: 90px;
+            background-color: white;
           }
           .notification {
             color: #ab003c;
@@ -133,7 +134,7 @@ const Register = () => {
           .header {
             width: 100%;
             height: 120px;
-            background-color: #2196f3;
+            background-color: #ffc028;
             margin-bottom: 30px;
             border-radius-top: 6px;
           }

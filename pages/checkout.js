@@ -15,9 +15,7 @@ function Checkout() {
   //const isAuthenticated  = true;
   
   // load stripe to inject into elements components
-  const stripePromise = loadStripe(
-    "pk_test_51HaLhVGgpfLkdZwmHVQcCOdUzwLWqV7umg9EbicemJqLOcLBPDrPtszruyxf4UzqH0lKwaNj5se3tHldNx92nPjI00Zoi8VgBN"
-  );
+  const stripePromise = loadStripe("pk_test_51MZ0UME7R4P6oiiV0WTDxXC7zKOclEMey5kMKqocx4Kqxd8EpF0QBnrPFIzMgJW9Bg4j6Mk4gwJTYoFMwY0FufGp00MPY9Ihhg");
 
   return (
     <Row>
