@@ -32,10 +32,6 @@ function OrderList(props){
         address
         city
         amount
-        dishes{
-          id
-          name
-        }
       }
     }
   `;
@@ -89,9 +85,9 @@ if(searchQuery.length > 0){
                     {res.amount}<br></br>
                     </div>
             Dishes:<div>
-                  {order.map((res) => (
+                  {/* {order.map((res) => (
                     <p>[{res.name}]</p>
-                  ))}
+                  ))} */}
             </div>
           </CardBody>
         </AccordionCollapse>
